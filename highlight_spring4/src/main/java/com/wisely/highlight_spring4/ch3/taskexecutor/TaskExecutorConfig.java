@@ -8,10 +8,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
+
 @Configuration
 @ComponentScan("com.wisely.highlight_spring4.ch3.taskexecutor")
-@EnableAsync //1 
-public class TaskExecutorConfig implements AsyncConfigurer{//2
+@EnableAsync //1开启异步任务支持
+public class TaskExecutorConfig implements AsyncConfigurer{//2实现AsyncConfigurer并重写方法
 
 	@Override
 	public Executor getAsyncExecutor() {//2

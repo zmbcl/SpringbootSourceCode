@@ -16,6 +16,6 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan //2
 public @interface WiselyConfiguration {
 	
-	String[] value() default {}; //3
+	String[] value() default {}; //3覆盖value参数
 
 }

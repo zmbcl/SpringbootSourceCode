@@ -13,34 +13,34 @@ import org.springframework.core.io.Resource;
 
 @Configuration
 @ComponentScan("com.wisely.highlight_spring4.ch2.el")
-@PropertySource("classpath:com/wisely/highlight_spring4/ch2/el/test.properties")//7
+@PropertySource(value = "classpath:/com/wisely/highlight_spring4/ch2/el/test.properties",ignoreResourceNotFound = false)//注入配置文件
 public class ElConfig {
 	
-	@Value("I Love You!") //1
+	@Value("I Love You!") //注入普通字符串
     private String normal;
 
-	@Value("#{systemProperties['os.name']}") //2
+	@Value("#{systemProperties['os.name']}") //注入操作系统属性
 	private String osName;
 	
-	@Value("#{ T(java.lang.Math).random() * 100.0 }") //3
+	@Value("#{ T(java.lang.Math).random() * 100.0 }") //注入表达式结果
     private double randomNumber;
 
-	@Value("#{demoService.another}") //4
+	@Value("#{demoService.another}") //注入其他Bean属性
 	private String fromAnother;
 
-	@Value("classpath:com/wisely/highlight_spring4/ch2/el/test.txt") //5
+	@Value("classpath:com/wisely/highlight_spring4/ch2/el/test.txt") //注入文件资源
 	private Resource testFile;
 
-	@Value("http://www.baidu.com") //6 
+	@Value("http://www.baidu.com") //注入网址资源
 	private Resource testUrl;
 
-	@Value("${book.name}") //7 
+	@Value("${book.name}") //注入配置文件
 	private String bookName;
 
 	@Autowired
-	private Environment environment; //7
+	private Environment environment; //注入配置文件
 	
-	@Bean //7
+	@Bean //注入配置文件
 	public static PropertySourcesPlaceholderConfigurer propertyConfigure() {
 		return new PropertySourcesPlaceholderConfigurer();
 	}

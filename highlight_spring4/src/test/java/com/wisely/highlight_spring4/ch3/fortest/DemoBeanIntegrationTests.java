@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class) //1
 @ContextConfiguration(classes = {TestConfig.class}) //2
-@ActiveProfiles("prod") //3
+@ActiveProfiles("prod") //3声明活动的profile
 public class DemoBeanIntegrationTests {
 	@Autowired //4
 	private TestBean testBean;
@@ -22,6 +22,4 @@ public class DemoBeanIntegrationTests {
 		String actual = testBean.getContent();
 		Assert.assertEquals(expected, actual);
 	}
-
-	
 }
