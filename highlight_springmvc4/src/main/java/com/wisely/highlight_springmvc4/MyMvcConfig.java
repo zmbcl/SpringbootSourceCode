@@ -36,6 +36,13 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {// 2
 		return viewResolver;
 	}
 
+	/**
+	 * @Description: 定义静态资源配置
+	 * @Author: bcl
+	 * @Date: 2020/3/19 3:36 下午
+	 * @Param:
+	 * @Return:
+	 */
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 
@@ -44,12 +51,19 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {// 2
 
 	}
 
+
 	@Bean
-	// 1
 	public DemoInterceptor demoInterceptor() {
 		return new DemoInterceptor();
 	}
 
+	/**
+	 * @Description: 添加自定义过滤器
+	 * @Author: bcl
+	 * @Date: 2020/3/19 3:36 下午
+	 * @Param:
+	 * @Return:
+	 */
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {// 2
 		registry.addInterceptor(demoInterceptor());
@@ -68,7 +82,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {// 2
 	 public void configurePathMatch(PathMatchConfigurer configurer) {
 	 configurer.setUseSuffixPatternMatch(false);
 	 }
-
+	// 文件上传部分
 	@Bean
 	public MultipartResolver multipartResolver() {
 		CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver();
@@ -79,6 +93,7 @@ public class MyMvcConfig extends WebMvcConfigurerAdapter {// 2
 	@Override
     public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(converter());
+
     }
 	
 	@Bean 

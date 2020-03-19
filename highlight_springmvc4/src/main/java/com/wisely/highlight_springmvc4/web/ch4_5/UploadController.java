@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class UploadController {
-	
+
 	@RequestMapping(value = "/upload",method = RequestMethod.POST)
 	public @ResponseBody String upload(MultipartFile file) {//1
 		

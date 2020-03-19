@@ -1,6 +1,6 @@
 package com.wisely.highlight_springmvc4.domain;
 
-public class DemoObj {
+public class 	DemoObj {
 	private Long id;
 	private String name;
 	
